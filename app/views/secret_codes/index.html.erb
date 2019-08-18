@@ -1,0 +1,24 @@
+<%= render partial: 'form'%>
+<br/>
+<br/>
+<h2>Secret codes</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>User</th>
+			<th>Created at</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @secret_codes.each do |sc| %>
+			<tr>
+				<td><%= sc.code %></td>
+				<td><%= sc.user&.email %></td>
+				<td><%= sc.created_at.strftime("%d %B, %Y") %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= will_paginate @secret_codes, renderer: BootstrapPagination::Rails %>

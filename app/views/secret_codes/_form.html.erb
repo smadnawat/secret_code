@@ -1,0 +1,13 @@
+<div class="jumbotron">
+	<%if params[:tab].eql?"assigned" %>
+		<%= link_to "All Secret Codes", secret_codes_path, class: "btn btn-primary" %>
+	<% else %>
+		<%= form_for @secret_code, html: {style: "display: inline-block; margin-left: 0px;"} do |f| %>
+			<%= f.label "Select number" %>:
+			<%= select_tag "size", options_for_select([ 1, 10, 20, 50, 100 ], 10) %>
+			<hr class="my-1">
+			<%= f.submit "Create Codes", class: "btn btn-primary" %>
+		<% end %>
+		<%= link_to "Secret Codes Assigned", secret_codes_path(tab: "assigned"), class: "btn btn-primary" %>
+	<% end %>
+</div>

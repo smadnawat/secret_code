@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <h1 class="display-4">Hello, Welcome to secret codes!</h1>
+  <p class="lead">If you are admin you can create new secret codes. Your secret code is <b><%= current_user.secret_code&.code || 'ADMIN' %></b></p>
+  <hr class="my-4">
+  <p>You are allowed to access these links if you have an admin access.</p>
+  <p class="lead">
+  	<%= link_to "All Secret Codes", secret_codes_path, class: "btn btn-primary btn-lg" %>
+  	<%= link_to "Secret Codes Assigned", secret_codes_path(tab: "assigned"), class: "btn btn-primary btn-lg" %>
+  </p>
+</div>
+
